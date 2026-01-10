@@ -1,0 +1,1134 @@
+2026-01-06 11:05:54 - === REGISTRATION START ===
+2026-01-06 11:05:54 - Request Method - GET
+2026-01-06 11:05:54 - Content Type - not set
+2026-01-06 11:05:54 - ERROR: Wrong method
+2026-01-06 11:11:55 - === REGISTRATION START ===
+2026-01-06 11:11:55 - Request Method - POST
+2026-01-06 11:11:55 - Content Type - multipart/form-data; boundary=----WebKitFormBoundarysj7SG3e9Fkpxe3FD
+2026-01-06 11:11:55 - Reading input data...
+2026-01-06 11:11:55 - Raw Input - 
+2026-01-06 11:11:55 - Decoded JSON
+2026-01-06 11:11:55 - JSON decode failed, trying POST
+2026-01-06 11:11:55 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => killerbidk@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:11:55 - Checking rate limit...
+2026-01-06 11:11:55 - Client IP - ::1
+2026-01-06 11:11:55 - Sanitizing inputs...
+2026-01-06 11:11:55 - Sanitized data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => killerbidk@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:11:55 - Validating inputs...
+2026-01-06 11:11:55 - Validation passed! Connecting to database...
+2026-01-06 11:11:55 - Database connected successfully
+2026-01-06 11:11:55 - Checking for existing email...
+2026-01-06 11:11:55 - Existing check result - 
+2026-01-06 11:11:55 - Generating verification token...
+2026-01-06 11:11:55 - Token generated - Array
+(
+    [token] => c1ca18512579fd42a2d0172d5ad523b7b889c3a1c8994a7e3ac806dd8ab3894f
+    [hashed] => f9759892f17122a104e3fe4fa7e9c7bf9eba955d841c640e5840e54acef38e77
+)
+
+2026-01-06 11:11:55 - Inserting participant into database...
+2026-01-06 11:11:55 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-06 11:11:55 - SQL Parameters - Array
+(
+    [0] => Mahfoudi
+    [1] => Moncef
+    [2] => killerbidk@gmail.com
+    [3] => 0561317471
+    [4] => diplome
+    [5] => Juridique
+    [6] => f9759892f17122a104e3fe4fa7e9c7bf9eba955d841c640e5840e54acef38e77
+    [7] => ::1
+)
+
+2026-01-06 11:11:55 - Insert result - 1
+2026-01-06 11:11:55 - Participant inserted with ID - 1
+2026-01-06 11:11:55 - Sending verification email...
+[06-Jan-2026 11:11:55 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-06_11-11-55_killerbidk_gmail_com.html
+2026-01-06 11:11:55 - Email sent result - 1
+2026-01-06 11:11:55 - === REGISTRATION SUCCESS ===
+2026-01-06 11:11:55 - === REGISTRATION END ===
+
+
+2026-01-06 11:14:05 - === REGISTRATION START ===
+2026-01-06 11:14:05 - Request Method - POST
+2026-01-06 11:14:05 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryBOe0jb9io4T2IH6H
+2026-01-06 11:14:05 - Reading input data...
+2026-01-06 11:14:05 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => killerbidk@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:14:05 - Checking rate limit...
+2026-01-06 11:14:05 - Client IP - ::1
+2026-01-06 11:14:05 - Sanitizing inputs...
+2026-01-06 11:14:05 - Sanitized data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => killerbidk@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:14:05 - Validating inputs...
+2026-01-06 11:14:05 - Validation passed! Connecting to database...
+2026-01-06 11:14:05 - Database connected successfully
+2026-01-06 11:14:05 - Checking for existing email...
+2026-01-06 11:14:05 - Existing check result - Array
+(
+    [id] => 1
+    [is_verified] => 1
+)
+
+2026-01-06 11:14:05 - ERROR: Email already verified
+2026-01-06 11:14:21 - === REGISTRATION START ===
+2026-01-06 11:14:21 - Request Method - POST
+2026-01-06 11:14:21 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryvGCyNEvMHhm7BZKS
+2026-01-06 11:14:21 - Reading input data...
+2026-01-06 11:14:21 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => abdou@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:14:21 - Checking rate limit...
+2026-01-06 11:14:21 - Client IP - ::1
+2026-01-06 11:14:21 - Sanitizing inputs...
+2026-01-06 11:14:21 - Sanitized data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => abdou@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:14:21 - Validating inputs...
+2026-01-06 11:14:21 - Validation passed! Connecting to database...
+2026-01-06 11:14:21 - Database connected successfully
+2026-01-06 11:14:21 - Checking for existing email...
+2026-01-06 11:14:21 - Existing check result - 
+2026-01-06 11:14:21 - Generating verification token...
+2026-01-06 11:14:21 - Token generated - Array
+(
+    [token] => cad30e3771f09daf8b9401267e7727cb648b73cd776f46e035a2a7194dc6cdd8
+    [hashed] => a8e399781da01562a9cd131f97d720acd9f762e47d73fe6d694d76a0381c2f8f
+)
+
+2026-01-06 11:14:21 - Inserting participant into database...
+2026-01-06 11:14:21 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-06 11:14:21 - SQL Parameters - Array
+(
+    [0] => Mahfoudi
+    [1] => Moncef
+    [2] => abdou@gmail.com
+    [3] => 0561317471
+    [4] => diplome
+    [5] => Juridique
+    [6] => a8e399781da01562a9cd131f97d720acd9f762e47d73fe6d694d76a0381c2f8f
+    [7] => ::1
+)
+
+2026-01-06 11:14:21 - Insert result - 1
+2026-01-06 11:14:21 - Participant inserted with ID - 2
+2026-01-06 11:14:21 - Sending verification email...
+[06-Jan-2026 11:14:21 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-06_11-14-21_abdou_gmail_com.html
+2026-01-06 11:14:21 - Email sent result - 1
+2026-01-06 11:14:21 - === REGISTRATION SUCCESS ===
+2026-01-06 11:14:21 - === REGISTRATION END ===
+
+
+2026-01-06 11:23:50 - === REGISTRATION START ===
+2026-01-06 11:23:50 - Request Method - POST
+2026-01-06 11:23:50 - Content Type - multipart/form-data; boundary=----WebKitFormBoundary6caHhAohUbCzRP7E
+2026-01-06 11:23:50 - Reading input data...
+2026-01-06 11:23:50 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => amine@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:23:50 - Checking rate limit...
+2026-01-06 11:23:50 - Client IP - ::1
+2026-01-06 11:23:50 - Sanitizing inputs...
+2026-01-06 11:23:50 - Sanitized data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => amine@gmail.com
+    [telephone] => 0561317471
+    [statut] => diplome
+    [domaine] => Juridique
+)
+
+2026-01-06 11:23:50 - Validating inputs...
+2026-01-06 11:23:50 - Validation passed! Connecting to database...
+2026-01-06 11:23:50 - Database connected successfully
+2026-01-06 11:23:50 - Checking for existing email...
+2026-01-06 11:23:50 - Existing check result - 
+2026-01-06 11:23:50 - Generating verification token...
+2026-01-06 11:23:50 - Token generated - Array
+(
+    [token] => b3055fc9176110ebcd22e311eafe5236cd6215290551da9da77016531a7646be
+    [hashed] => cff6b8abd002de305c7a3ca3ed3c5859c81630622d02351ff1a34c0d0ad435d9
+)
+
+2026-01-06 11:23:50 - Inserting participant into database...
+2026-01-06 11:23:50 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-06 11:23:50 - SQL Parameters - Array
+(
+    [0] => Mahfoudi
+    [1] => Moncef
+    [2] => amine@gmail.com
+    [3] => 0561317471
+    [4] => diplome
+    [5] => Juridique
+    [6] => cff6b8abd002de305c7a3ca3ed3c5859c81630622d02351ff1a34c0d0ad435d9
+    [7] => ::1
+)
+
+2026-01-06 11:23:50 - Insert result - 1
+2026-01-06 11:23:50 - Participant inserted with ID - 3
+2026-01-06 11:23:50 - Sending verification email...
+[06-Jan-2026 11:23:50 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-06_11-23-50_amine_gmail_com.html
+2026-01-06 11:23:50 - Email sent result - 1
+2026-01-06 11:23:50 - === REGISTRATION SUCCESS ===
+2026-01-06 11:23:50 - === REGISTRATION END ===
+
+
+2026-01-06 11:28:01 - === REGISTRATION START ===
+2026-01-06 11:28:01 - Request Method - POST
+2026-01-06 11:28:01 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryYo67Op3EOOcusnY9
+2026-01-06 11:28:01 - Reading input data...
+2026-01-06 11:28:01 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => hmida@gmail.com
+    [telephone] => 0561317471
+    [statut] => emploi
+    [domaine] => Juridique
+)
+
+2026-01-06 11:28:01 - Checking rate limit...
+2026-01-06 11:28:01 - Client IP - ::1
+2026-01-06 11:28:01 - Sanitizing inputs...
+2026-01-06 11:28:01 - Sanitized data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => hmida@gmail.com
+    [telephone] => 0561317471
+    [statut] => emploi
+    [domaine] => Juridique
+)
+
+2026-01-06 11:28:01 - Validating inputs...
+2026-01-06 11:28:01 - Validation passed! Connecting to database...
+2026-01-06 11:28:01 - Database connected successfully
+2026-01-06 11:28:01 - Checking for existing email...
+2026-01-06 11:28:01 - Existing check result - 
+2026-01-06 11:28:01 - Generating verification token...
+2026-01-06 11:28:01 - Token generated - Array
+(
+    [token] => d1ec337aa650487da6e90090c3927a950fc7996f6967c771e80985ba5b404891
+    [hashed] => fb493b6abb024fbe38880262e51fd168a298ec6a9f736a71842be0b22041dc27
+)
+
+2026-01-06 11:28:01 - Inserting participant into database...
+2026-01-06 11:28:01 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-06 11:28:01 - SQL Parameters - Array
+(
+    [0] => Mahfoudi
+    [1] => Moncef
+    [2] => hmida@gmail.com
+    [3] => 0561317471
+    [4] => emploi
+    [5] => Juridique
+    [6] => fb493b6abb024fbe38880262e51fd168a298ec6a9f736a71842be0b22041dc27
+    [7] => ::1
+)
+
+2026-01-06 11:28:01 - Insert result - 1
+2026-01-06 11:28:01 - Participant inserted with ID - 4
+2026-01-06 11:28:01 - Sending verification email...
+[06-Jan-2026 11:28:01 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-06_11-28-01_hmida_gmail_com.html
+2026-01-06 11:28:01 - Email sent result - 1
+2026-01-06 11:28:01 - === REGISTRATION SUCCESS ===
+2026-01-06 11:28:01 - === REGISTRATION END ===
+
+
+2026-01-06 11:36:58 - === REGISTRATION START ===
+2026-01-06 11:36:58 - Request Method - POST
+2026-01-06 11:36:58 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryBvDdlBitKQ0FUeFA
+2026-01-06 11:36:58 - Reading input data...
+2026-01-06 11:36:58 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => rabi3@gmail.com
+    [telephone] => 0561317471
+    [statut] => professionnel
+    [domaine] => Juridique
+)
+
+2026-01-06 11:36:58 - Checking rate limit...
+2026-01-06 11:36:58 - Client IP - ::1
+2026-01-06 11:36:58 - ERROR: Rate limit exceeded
+2026-01-06 11:37:02 - === REGISTRATION START ===
+2026-01-06 11:37:02 - Request Method - POST
+2026-01-06 11:37:02 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryhpYpvtWjWe5mlHCt
+2026-01-06 11:37:02 - Reading input data...
+2026-01-06 11:37:02 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => rabi3@gmail.com
+    [telephone] => 0561317471
+    [statut] => professionnel
+    [domaine] => Juridique
+)
+
+2026-01-06 11:37:02 - Checking rate limit...
+2026-01-06 11:37:02 - Client IP - ::1
+2026-01-06 11:37:02 - ERROR: Rate limit exceeded
+2026-01-06 11:37:17 - === REGISTRATION START ===
+2026-01-06 11:37:17 - Request Method - POST
+2026-01-06 11:37:17 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryjVAMT3Gsz8hxi8Se
+2026-01-06 11:37:17 - Reading input data...
+2026-01-06 11:37:17 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => rabi@gmail.com
+    [telephone] => 0561317471
+    [statut] => etudiant
+    [domaine] => Juridique
+)
+
+2026-01-06 11:37:17 - Checking rate limit...
+2026-01-06 11:37:17 - Client IP - ::1
+2026-01-06 11:37:17 - ERROR: Rate limit exceeded
+2026-01-06 11:37:26 - === REGISTRATION START ===
+2026-01-06 11:37:26 - Request Method - POST
+2026-01-06 11:37:26 - Content Type - multipart/form-data; boundary=----WebKitFormBoundarygsPDpXwnZ8U07kFU
+2026-01-06 11:37:26 - Reading input data...
+2026-01-06 11:37:26 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => rabi@gmail.com
+    [telephone] => 0561317471
+    [statut] => etudiant
+    [domaine] => Juridique
+)
+
+2026-01-06 11:37:26 - Checking rate limit...
+2026-01-06 11:37:26 - Client IP - ::1
+2026-01-06 11:37:26 - ERROR: Rate limit exceeded
+2026-01-06 11:38:37 - === REGISTRATION START ===
+2026-01-06 11:38:37 - Request Method - POST
+2026-01-06 11:38:37 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryKUSLLfYU8L91UBzz
+2026-01-06 11:38:37 - Reading input data...
+2026-01-06 11:38:37 - POST data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => rabi@gmail.com
+    [telephone] => 0561317471
+    [statut] => professionnel
+    [domaine] => Juridique
+)
+
+2026-01-06 11:38:37 - Checking rate limit...
+2026-01-06 11:38:37 - Client IP - ::1
+2026-01-06 11:38:37 - Sanitizing inputs...
+2026-01-06 11:38:37 - Sanitized data - Array
+(
+    [nom] => Mahfoudi
+    [prenom] => Moncef
+    [email] => rabi@gmail.com
+    [telephone] => 0561317471
+    [statut] => professionnel
+    [domaine] => Juridique
+)
+
+2026-01-06 11:38:37 - Validating inputs...
+2026-01-06 11:38:37 - Validation passed! Connecting to database...
+2026-01-06 11:38:37 - Database connected successfully
+2026-01-06 11:38:37 - Checking for existing email...
+2026-01-06 11:38:37 - Existing check result - 
+2026-01-06 11:38:37 - Generating verification token...
+2026-01-06 11:38:37 - Token generated - Array
+(
+    [token] => ed23cf561d690bc39de2addbf9912d4a3ce3d54a432811a738508274b1d81a6e
+    [hashed] => bc3ea709d3c3ee9bdd46c71c25e405a26605a65196cf98c92bcf691ab8cd9696
+)
+
+2026-01-06 11:38:37 - Inserting participant into database...
+2026-01-06 11:38:37 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-06 11:38:37 - SQL Parameters - Array
+(
+    [0] => Mahfoudi
+    [1] => Moncef
+    [2] => rabi@gmail.com
+    [3] => 0561317471
+    [4] => professionnel
+    [5] => Juridique
+    [6] => bc3ea709d3c3ee9bdd46c71c25e405a26605a65196cf98c92bcf691ab8cd9696
+    [7] => ::1
+)
+
+2026-01-06 11:38:37 - Insert result - 1
+2026-01-06 11:38:37 - Participant inserted with ID - 5
+2026-01-06 11:38:37 - Sending verification email...
+[06-Jan-2026 11:38:37 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-06_11-38-37_rabi_gmail_com.html
+2026-01-06 11:38:37 - Email sent result - 1
+2026-01-06 11:38:37 - === REGISTRATION SUCCESS ===
+2026-01-06 11:38:37 - === REGISTRATION END ===
+
+
+2026-01-06 11:47:27 - === REGISTRATION START ===
+2026-01-06 11:47:27 - Request Method - GET
+2026-01-06 11:47:27 - Content Type - not set
+2026-01-06 11:47:27 - ERROR: Wrong method
+2026-01-07 00:57:23 - === REGISTRATION START ===
+2026-01-07 00:57:23 - Request Method - POST
+2026-01-07 00:57:23 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryEARSZgihuXVZ4Ik7
+2026-01-07 00:57:23 - Reading input data...
+2026-01-07 00:57:23 - POST data - Array
+(
+    [nom] => metmati
+    [prenom] => hadil
+    [email] => hadil@gmail.com
+    [telephone] => 1701820
+    [statut] => etudiant
+    [domaine] => marketing
+)
+
+2026-01-07 00:57:23 - Checking rate limit...
+2026-01-07 00:57:23 - Client IP - ::1
+2026-01-07 00:57:23 - Sanitizing inputs...
+2026-01-07 00:57:23 - Sanitized data - Array
+(
+    [nom] => metmati
+    [prenom] => hadil
+    [email] => hadil@gmail.com
+    [telephone] => 1701820
+    [statut] => etudiant
+    [domaine] => marketing
+)
+
+2026-01-07 00:57:23 - Validating inputs...
+2026-01-07 00:57:23 - Validation errors - Array
+(
+    [0] => Numéro de téléphone invalide (format algérien requis)
+)
+
+2026-01-07 00:57:36 - === REGISTRATION START ===
+2026-01-07 00:57:36 - Request Method - POST
+2026-01-07 00:57:36 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryBnoUlnCWgHavzUnR
+2026-01-07 00:57:36 - Reading input data...
+2026-01-07 00:57:36 - POST data - Array
+(
+    [nom] => metmati
+    [prenom] => hadil
+    [email] => hadil@gmail.com
+    [telephone] => 0594197391
+    [statut] => etudiant
+    [domaine] => marketing
+)
+
+2026-01-07 00:57:36 - Checking rate limit...
+2026-01-07 00:57:36 - Client IP - ::1
+2026-01-07 00:57:36 - Sanitizing inputs...
+2026-01-07 00:57:36 - Sanitized data - Array
+(
+    [nom] => metmati
+    [prenom] => hadil
+    [email] => hadil@gmail.com
+    [telephone] => 0594197391
+    [statut] => etudiant
+    [domaine] => marketing
+)
+
+2026-01-07 00:57:36 - Validating inputs...
+2026-01-07 00:57:36 - Validation passed! Connecting to database...
+2026-01-07 00:57:36 - Database connected successfully
+2026-01-07 00:57:36 - Checking for existing email...
+2026-01-07 00:57:36 - Existing check result - 
+2026-01-07 00:57:36 - Generating verification token...
+2026-01-07 00:57:36 - Token generated - Array
+(
+    [token] => edd53729990aa1c16177e07b962bc947f4e4e465747f0957facfc8f5ade59369
+    [hashed] => 322fc475f96b28caa2538d67442b9470934b3d25c4a7cbf7dbe0bf0471e6fa50
+)
+
+2026-01-07 00:57:36 - Inserting participant into database...
+2026-01-07 00:57:36 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-07 00:57:36 - SQL Parameters - Array
+(
+    [0] => metmati
+    [1] => hadil
+    [2] => hadil@gmail.com
+    [3] => 0594197391
+    [4] => etudiant
+    [5] => marketing
+    [6] => 322fc475f96b28caa2538d67442b9470934b3d25c4a7cbf7dbe0bf0471e6fa50
+    [7] => ::1
+)
+
+2026-01-07 00:57:36 - Insert result - 1
+2026-01-07 00:57:36 - Participant inserted with ID - 6
+2026-01-07 00:57:36 - Sending verification email...
+[07-Jan-2026 00:57:36 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-07_00-57-36_hadil_gmail_com.html
+2026-01-07 00:57:36 - Email sent result - 1
+2026-01-07 00:57:36 - === REGISTRATION SUCCESS ===
+2026-01-07 00:57:36 - === REGISTRATION END ===
+
+
+2026-01-07 01:21:38 - === REGISTRATION START ===
+2026-01-07 01:21:38 - Request Method - POST
+2026-01-07 01:21:38 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryOdGbLJDCBmAEBNRY
+2026-01-07 01:21:38 - Reading input data...
+2026-01-07 01:21:38 - POST data - Array
+(
+    [nom] => amir
+    [prenom] => mansour
+    [email] => amir@gmail.com
+    [telephone] => 05712034810
+    [statut] => professionnel
+    [domaine] => finance
+)
+
+2026-01-07 01:21:38 - Checking rate limit...
+2026-01-07 01:21:38 - Client IP - ::1
+2026-01-07 01:21:38 - Sanitizing inputs...
+2026-01-07 01:21:38 - Sanitized data - Array
+(
+    [nom] => amir
+    [prenom] => mansour
+    [email] => amir@gmail.com
+    [telephone] => 05712034810
+    [statut] => professionnel
+    [domaine] => finance
+)
+
+2026-01-07 01:21:38 - Validating inputs...
+2026-01-07 01:21:38 - Validation errors - Array
+(
+    [0] => Numéro de téléphone invalide (format algérien requis)
+)
+
+2026-01-07 01:21:47 - === REGISTRATION START ===
+2026-01-07 01:21:47 - Request Method - POST
+2026-01-07 01:21:47 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryAattUVrE0caoRQpx
+2026-01-07 01:21:47 - Reading input data...
+2026-01-07 01:21:47 - POST data - Array
+(
+    [nom] => amir
+    [prenom] => mansour
+    [email] => amir@gmail.com
+    [telephone] => 0571203481
+    [statut] => professionnel
+    [domaine] => finance
+)
+
+2026-01-07 01:21:47 - Checking rate limit...
+2026-01-07 01:21:47 - Client IP - ::1
+2026-01-07 01:21:47 - Sanitizing inputs...
+2026-01-07 01:21:47 - Sanitized data - Array
+(
+    [nom] => amir
+    [prenom] => mansour
+    [email] => amir@gmail.com
+    [telephone] => 0571203481
+    [statut] => professionnel
+    [domaine] => finance
+)
+
+2026-01-07 01:21:47 - Validating inputs...
+2026-01-07 01:21:47 - Validation passed! Connecting to database...
+2026-01-07 01:21:47 - Database connected successfully
+2026-01-07 01:21:47 - Checking for existing email...
+2026-01-07 01:21:47 - Existing check result - 
+2026-01-07 01:21:47 - Generating verification token...
+2026-01-07 01:21:47 - Token generated - Array
+(
+    [token] => 038c3b4d36281471942203315717524ae8788829ed5fd18afdd2d4b30dc6f903
+    [hashed] => ba25a6b7871a5ec1010c7f2392dd97a64586a58bdd81d3649c478391d94b54fc
+)
+
+2026-01-07 01:21:47 - Inserting participant into database...
+2026-01-07 01:21:47 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-07 01:21:47 - SQL Parameters - Array
+(
+    [0] => amir
+    [1] => mansour
+    [2] => amir@gmail.com
+    [3] => 0571203481
+    [4] => professionnel
+    [5] => finance
+    [6] => ba25a6b7871a5ec1010c7f2392dd97a64586a58bdd81d3649c478391d94b54fc
+    [7] => ::1
+)
+
+2026-01-07 01:21:47 - Insert result - 1
+2026-01-07 01:21:47 - Participant inserted with ID - 7
+2026-01-07 01:21:47 - Sending verification email...
+[07-Jan-2026 01:21:47 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-07_01-21-47_amir_gmail_com.html
+2026-01-07 01:21:47 - Email sent result - 1
+2026-01-07 01:21:47 - === REGISTRATION SUCCESS ===
+2026-01-07 01:21:47 - === REGISTRATION END ===
+
+
+2026-01-07 01:24:39 - === REGISTRATION START ===
+2026-01-07 01:24:39 - Request Method - POST
+2026-01-07 01:24:39 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryBpH1j35WFKYhb5gy
+2026-01-07 01:24:39 - Reading input data...
+2026-01-07 01:24:39 - POST data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 03921239
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:24:39 - Checking rate limit...
+2026-01-07 01:24:39 - Client IP - ::1
+2026-01-07 01:24:39 - Sanitizing inputs...
+2026-01-07 01:24:39 - Sanitized data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 03921239
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:24:39 - Validating inputs...
+2026-01-07 01:24:39 - Validation errors - Array
+(
+    [0] => Numéro de téléphone invalide (format algérien requis)
+)
+
+2026-01-07 01:24:49 - === REGISTRATION START ===
+2026-01-07 01:24:49 - Request Method - POST
+2026-01-07 01:24:49 - Content Type - multipart/form-data; boundary=----WebKitFormBoundarybEJULik6GqxJeZdo
+2026-01-07 01:24:49 - Reading input data...
+2026-01-07 01:24:49 - POST data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 025308489
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:24:49 - Checking rate limit...
+2026-01-07 01:24:49 - Client IP - ::1
+2026-01-07 01:24:49 - Sanitizing inputs...
+2026-01-07 01:24:49 - Sanitized data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 025308489
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:24:49 - Validating inputs...
+2026-01-07 01:24:49 - Validation errors - Array
+(
+    [0] => Numéro de téléphone invalide (format algérien requis)
+)
+
+2026-01-07 01:24:54 - === REGISTRATION START ===
+2026-01-07 01:24:54 - Request Method - POST
+2026-01-07 01:24:54 - Content Type - multipart/form-data; boundary=----WebKitFormBoundarylPc9N81tcdrhZOpD
+2026-01-07 01:24:54 - Reading input data...
+2026-01-07 01:24:54 - POST data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 0253084899
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:24:54 - Checking rate limit...
+2026-01-07 01:24:54 - Client IP - ::1
+2026-01-07 01:24:54 - Sanitizing inputs...
+2026-01-07 01:24:54 - Sanitized data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 0253084899
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:24:54 - Validating inputs...
+2026-01-07 01:24:54 - Validation errors - Array
+(
+    [0] => Numéro de téléphone invalide (format algérien requis)
+)
+
+2026-01-07 01:25:02 - === REGISTRATION START ===
+2026-01-07 01:25:02 - Request Method - POST
+2026-01-07 01:25:02 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryTAahw3rhoEeKDIWC
+2026-01-07 01:25:02 - Reading input data...
+2026-01-07 01:25:02 - POST data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 05533084899
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:25:02 - Checking rate limit...
+2026-01-07 01:25:02 - Client IP - ::1
+2026-01-07 01:25:02 - Sanitizing inputs...
+2026-01-07 01:25:02 - Sanitized data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 05533084899
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:25:02 - Validating inputs...
+2026-01-07 01:25:02 - Validation errors - Array
+(
+    [0] => Numéro de téléphone invalide (format algérien requis)
+)
+
+2026-01-07 01:25:06 - === REGISTRATION START ===
+2026-01-07 01:25:06 - Request Method - POST
+2026-01-07 01:25:06 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryJM94eUMneWQgqSJm
+2026-01-07 01:25:06 - Reading input data...
+2026-01-07 01:25:06 - POST data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 0553308489
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:25:06 - Checking rate limit...
+2026-01-07 01:25:06 - Client IP - ::1
+2026-01-07 01:25:06 - Sanitizing inputs...
+2026-01-07 01:25:06 - Sanitized data - Array
+(
+    [nom] => hehe
+    [prenom] => slimane
+    [email] => slimane@gmail.com
+    [telephone] => 0553308489
+    [statut] => etudiant
+    [domaine] => ihafz
+)
+
+2026-01-07 01:25:06 - Validating inputs...
+2026-01-07 01:25:06 - Validation passed! Connecting to database...
+2026-01-07 01:25:06 - Database connected successfully
+2026-01-07 01:25:06 - Checking for existing email...
+2026-01-07 01:25:06 - Existing check result - 
+2026-01-07 01:25:06 - Generating verification token...
+2026-01-07 01:25:06 - Token generated - Array
+(
+    [token] => e08112ad8a3f19024f9fc8c5105d58b7a73e21798969a3ffe1583efffb2b1ab5
+    [hashed] => 09928c18f54713d119bba6f326c012197f4f084dd26e69b5e22e6e480f773eb2
+)
+
+2026-01-07 01:25:06 - Inserting participant into database...
+2026-01-07 01:25:06 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-07 01:25:06 - SQL Parameters - Array
+(
+    [0] => hehe
+    [1] => slimane
+    [2] => slimane@gmail.com
+    [3] => 0553308489
+    [4] => etudiant
+    [5] => ihafz
+    [6] => 09928c18f54713d119bba6f326c012197f4f084dd26e69b5e22e6e480f773eb2
+    [7] => ::1
+)
+
+2026-01-07 01:25:06 - Insert result - 1
+2026-01-07 01:25:06 - Participant inserted with ID - 8
+2026-01-07 01:25:06 - Sending verification email...
+[07-Jan-2026 01:25:06 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-07_01-25-06_slimane_gmail_com.html
+2026-01-07 01:25:06 - Email sent result - 1
+2026-01-07 01:25:06 - === REGISTRATION SUCCESS ===
+2026-01-07 01:25:06 - === REGISTRATION END ===
+
+
+2026-01-07 01:33:13 - === REGISTRATION START ===
+2026-01-07 01:33:13 - Request Method - POST
+2026-01-07 01:33:13 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryTke97n7QEe9uGmf2
+2026-01-07 01:33:13 - Reading input data...
+2026-01-07 01:33:13 - POST data - Array
+(
+    [nom] => smail
+    [prenom] => malak
+    [email] => malak@gmail.com
+    [telephone] => 0561329839
+    [statut] => etudiant
+    [domaine] => 08214
+)
+
+2026-01-07 01:33:13 - Checking rate limit...
+2026-01-07 01:33:13 - Client IP - ::1
+2026-01-07 01:33:13 - Sanitizing inputs...
+2026-01-07 01:33:13 - Sanitized data - Array
+(
+    [nom] => smail
+    [prenom] => malak
+    [email] => malak@gmail.com
+    [telephone] => 0561329839
+    [statut] => etudiant
+    [domaine] => 08214
+)
+
+2026-01-07 01:33:13 - Validating inputs...
+2026-01-07 01:33:13 - Validation passed! Connecting to database...
+2026-01-07 01:33:13 - Database connected successfully
+2026-01-07 01:33:13 - Checking for existing email...
+2026-01-07 01:33:13 - Existing check result - 
+2026-01-07 01:33:13 - Generating verification token...
+2026-01-07 01:33:13 - Token generated - Array
+(
+    [token] => 65fcc27f5a58c4de2f783ba2322da87fe43b5c439311d6607eca262445b7cbb9
+    [hashed] => 067f84a3ca60702cc9cd5adc7be3a0f8f4b73ec3db76bed8d1544794c8936a9c
+)
+
+2026-01-07 01:33:13 - Inserting participant into database...
+2026-01-07 01:33:13 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-07 01:33:13 - SQL Parameters - Array
+(
+    [0] => smail
+    [1] => malak
+    [2] => malak@gmail.com
+    [3] => 0561329839
+    [4] => etudiant
+    [5] => 08214
+    [6] => 067f84a3ca60702cc9cd5adc7be3a0f8f4b73ec3db76bed8d1544794c8936a9c
+    [7] => ::1
+)
+
+2026-01-07 01:33:13 - Insert result - 1
+2026-01-07 01:33:13 - Participant inserted with ID - 9
+2026-01-07 01:33:13 - Sending verification email...
+[07-Jan-2026 01:33:13 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-07_01-33-13_malak_gmail_com.html
+2026-01-07 01:33:13 - Email sent result - 1
+2026-01-07 01:33:13 - === REGISTRATION SUCCESS ===
+2026-01-07 01:33:13 - === REGISTRATION END ===
+
+
+2026-01-07 01:45:36 - === REGISTRATION START ===
+2026-01-07 01:45:36 - Request Method - POST
+2026-01-07 01:45:36 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryy671byqW86A4DUUI
+2026-01-07 01:45:36 - Reading input data...
+2026-01-07 01:45:36 - POST data - Array
+(
+    [nom] => midou
+    [prenom] => amou
+    [email] => midou@gmail.com
+    [telephone] => 0755118820
+    [statut] => etudiant
+    [domaine] => AZEA
+)
+
+2026-01-07 01:45:36 - Checking rate limit...
+2026-01-07 01:45:36 - Client IP - ::1
+2026-01-07 01:45:36 - Sanitizing inputs...
+2026-01-07 01:45:36 - Sanitized data - Array
+(
+    [nom] => midou
+    [prenom] => amou
+    [email] => midou@gmail.com
+    [telephone] => 0755118820
+    [statut] => etudiant
+    [domaine] => AZEA
+)
+
+2026-01-07 01:45:36 - Validating inputs...
+2026-01-07 01:45:36 - Validation passed! Connecting to database...
+2026-01-07 01:45:36 - Database connected successfully
+2026-01-07 01:45:36 - Checking for existing email...
+2026-01-07 01:45:36 - Existing check result - 
+2026-01-07 01:45:36 - Generating verification token...
+2026-01-07 01:45:36 - Token generated - Array
+(
+    [token] => 9a1ce8078f7302a30bc95576ec8eddae0fce6861e88ddda608032e65ec4185f9
+    [hashed] => 93fa721d34f2fc3af5ba19b6a08669c54faccd111ce57f762a54165c2b02a2b6
+)
+
+2026-01-07 01:45:36 - Inserting participant into database...
+2026-01-07 01:45:36 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-07 01:45:36 - SQL Parameters - Array
+(
+    [0] => midou
+    [1] => amou
+    [2] => midou@gmail.com
+    [3] => 0755118820
+    [4] => etudiant
+    [5] => AZEA
+    [6] => 93fa721d34f2fc3af5ba19b6a08669c54faccd111ce57f762a54165c2b02a2b6
+    [7] => ::1
+)
+
+2026-01-07 01:45:36 - Insert result - 1
+2026-01-07 01:45:36 - Participant inserted with ID - 10
+2026-01-07 01:45:36 - Sending verification email...
+[07-Jan-2026 01:45:36 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-07_01-45-36_midou_gmail_com.html
+2026-01-07 01:45:36 - Email sent result - 1
+2026-01-07 01:45:36 - === REGISTRATION SUCCESS ===
+2026-01-07 01:45:36 - === REGISTRATION END ===
+
+
+2026-01-07 01:48:37 - === REGISTRATION START ===
+2026-01-07 01:48:37 - Request Method - POST
+2026-01-07 01:48:37 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryKOwURRmIBInZdIO6
+2026-01-07 01:48:37 - Reading input data...
+2026-01-07 01:48:37 - POST data - Array
+(
+    [nom] => meriem
+    [prenom] => hamadouche
+    [email] => mmm@gmail.com
+    [telephone] => 0654599091
+    [statut] => emploi
+    [domaine] => Finance
+)
+
+2026-01-07 01:48:37 - Checking rate limit...
+2026-01-07 01:48:37 - Client IP - ::1
+2026-01-07 01:48:37 - Sanitizing inputs...
+2026-01-07 01:48:37 - Sanitized data - Array
+(
+    [nom] => meriem
+    [prenom] => hamadouche
+    [email] => mmm@gmail.com
+    [telephone] => 0654599091
+    [statut] => emploi
+    [domaine] => Finance
+)
+
+2026-01-07 01:48:37 - Validating inputs...
+2026-01-07 01:48:37 - Validation passed! Connecting to database...
+2026-01-07 01:48:37 - Database connected successfully
+2026-01-07 01:48:37 - Checking for existing email...
+2026-01-07 01:48:37 - Existing check result - 
+2026-01-07 01:48:37 - Generating verification token...
+2026-01-07 01:48:37 - Token generated - Array
+(
+    [token] => a6c55883cec0b1575bade7eb248ee89699a3eb4d9700a24654ddbfd770a3d526
+    [hashed] => 0a000c31e9e3f3203e47c3ec027e980e23103627cd0ebaca789ee634fba11d05
+)
+
+2026-01-07 01:48:37 - Inserting participant into database...
+2026-01-07 01:48:37 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-07 01:48:37 - SQL Parameters - Array
+(
+    [0] => meriem
+    [1] => hamadouche
+    [2] => mmm@gmail.com
+    [3] => 0654599091
+    [4] => emploi
+    [5] => Finance
+    [6] => 0a000c31e9e3f3203e47c3ec027e980e23103627cd0ebaca789ee634fba11d05
+    [7] => ::1
+)
+
+2026-01-07 01:48:37 - Insert result - 1
+2026-01-07 01:48:37 - Participant inserted with ID - 11
+2026-01-07 01:48:37 - Sending verification email...
+[07-Jan-2026 01:48:37 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-07_01-48-37_mmm_gmail_com.html
+2026-01-07 01:48:37 - Email sent result - 1
+2026-01-07 01:48:37 - === REGISTRATION SUCCESS ===
+2026-01-07 01:48:37 - === REGISTRATION END ===
+
+
+2026-01-10 00:57:47 - === REGISTRATION START ===
+2026-01-10 00:57:47 - Request Method - POST
+2026-01-10 00:57:47 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryG2ssKtdBQhmC0z7V
+2026-01-10 00:57:47 - Reading input data...
+2026-01-10 00:57:47 - POST data - Array
+(
+    [nom] => jiji
+    [prenom] => jaja
+    [email] => jiji@gmail.com
+    [telephone] => 0561474742
+    [statut] => emploi
+    [domaine] => informatqieu
+)
+
+2026-01-10 00:57:47 - Checking rate limit...
+2026-01-10 00:57:47 - Client IP - ::1
+2026-01-10 00:57:47 - Sanitizing inputs...
+2026-01-10 00:57:47 - Sanitized data - Array
+(
+    [nom] => jiji
+    [prenom] => jaja
+    [email] => jiji@gmail.com
+    [telephone] => 0561474742
+    [statut] => emploi
+    [domaine] => informatqieu
+)
+
+2026-01-10 00:57:47 - Validating inputs...
+2026-01-10 00:57:47 - Validation passed! Connecting to database...
+2026-01-10 00:57:47 - Database connected successfully
+2026-01-10 00:57:47 - Checking for existing email...
+2026-01-10 00:57:47 - Existing check result - 
+2026-01-10 00:57:47 - Generating verification token...
+2026-01-10 00:57:47 - Token generated - Array
+(
+    [token] => 87ef64b717699069b67c82b9467160b7b30b20ed402af85687abd35ee761c0a1
+    [hashed] => 908cc343afdfbe4fd4a7f8bbfb477505b898986257c6ace3e4181050b12e9d43
+)
+
+2026-01-10 00:57:47 - Inserting participant into database...
+2026-01-10 00:57:47 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-10 00:57:47 - SQL Parameters - Array
+(
+    [0] => jiji
+    [1] => jaja
+    [2] => jiji@gmail.com
+    [3] => 0561474742
+    [4] => emploi
+    [5] => informatqieu
+    [6] => 908cc343afdfbe4fd4a7f8bbfb477505b898986257c6ace3e4181050b12e9d43
+    [7] => ::1
+)
+
+2026-01-10 00:57:47 - Insert result - 1
+2026-01-10 00:57:47 - Participant inserted with ID - 12
+2026-01-10 00:57:47 - Sending verification email...
+[10-Jan-2026 00:57:47 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-10_00-57-47_jiji_gmail_com.html
+2026-01-10 00:57:47 - Email sent result - 1
+2026-01-10 00:57:47 - === REGISTRATION SUCCESS ===
+2026-01-10 00:57:47 - === REGISTRATION END ===
+
+
+2026-01-10 01:00:30 - === REGISTRATION START ===
+2026-01-10 01:00:30 - Request Method - POST
+2026-01-10 01:00:30 - Content Type - multipart/form-data; boundary=----WebKitFormBoundaryoShUxv9S8h0F0T2V
+2026-01-10 01:00:30 - Reading input data...
+2026-01-10 01:00:30 - POST data - Array
+(
+    [nom] => jojo
+    [prenom] => lolo
+    [email] => lolo@gmail.com
+    [telephone] => 0567282828
+    [statut] => professionnel
+    [domaine] => Juridique
+)
+
+2026-01-10 01:00:30 - Checking rate limit...
+2026-01-10 01:00:30 - Client IP - ::1
+2026-01-10 01:00:30 - Sanitizing inputs...
+2026-01-10 01:00:30 - Sanitized data - Array
+(
+    [nom] => jojo
+    [prenom] => lolo
+    [email] => lolo@gmail.com
+    [telephone] => 0567282828
+    [statut] => professionnel
+    [domaine] => Juridique
+)
+
+2026-01-10 01:00:30 - Validating inputs...
+2026-01-10 01:00:30 - Validation passed! Connecting to database...
+2026-01-10 01:00:30 - Database connected successfully
+2026-01-10 01:00:30 - Checking for existing email...
+2026-01-10 01:00:30 - Existing check result - 
+2026-01-10 01:00:30 - Generating verification token...
+2026-01-10 01:00:30 - Token generated - Array
+(
+    [token] => 036646bde3267e786f1384af1ba6b694fa3be63caee532d62a678d90119aad52
+    [hashed] => 1f0d0db97402be9a1e187cc554e58d9879091b69ce4215af80a2e7485ba0566a
+)
+
+2026-01-10 01:00:30 - Inserting participant into database...
+2026-01-10 01:00:30 - SQL Query - INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-01-10 01:00:30 - SQL Parameters - Array
+(
+    [0] => jojo
+    [1] => lolo
+    [2] => lolo@gmail.com
+    [3] => 0567282828
+    [4] => professionnel
+    [5] => Juridique
+    [6] => 1f0d0db97402be9a1e187cc554e58d9879091b69ce4215af80a2e7485ba0566a
+    [7] => ::1
+)
+
+2026-01-10 01:00:30 - Insert result - 1
+2026-01-10 01:00:30 - Participant inserted with ID - 13
+2026-01-10 01:00:30 - Sending verification email...
+[10-Jan-2026 01:00:30 Africa/Algiers] TEST EMAIL saved to: C:\xampp\htdocs\Emploitic_Connect_2026/test_emails/2026-01-10_01-00-30_lolo_gmail_com.html
+2026-01-10 01:00:30 - Email sent result - 1
+2026-01-10 01:00:30 - === REGISTRATION SUCCESS ===
+2026-01-10 01:00:30 - === REGISTRATION END ===
+
+
