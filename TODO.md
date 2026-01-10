@@ -1,0 +1,5 @@
+- [x] Modify INSERT for direct confirmation in AJAX to put combined name in participant_id
+- [x] Modify INSERT for qr_code confirmation in AJAX to put combined name in participant_id
+- [x] Modify INSERT for search by name confirmation in AJAX to put combined name in participant_id
+- [x] Modify INSERT for qr_code in regular form to put combined name in participant_id
+- [x] Modify INSERT for search by name in regular form to put combined name in participant_id
