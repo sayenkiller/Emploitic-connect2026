@@ -32,29 +32,36 @@
 
 <script>
 (() => {
-    const circle = document.querySelector('.mouse-circle');
-    if (!circle) return;
+    try {
+        const circle = document.querySelector('.mouse-circle');
+        if (!circle) {
+            console.warn('Mouse circle element not found');
+            return;
+        }
 
-    let mouseX = 0,
-        mouseY = 0;
-    let circleX = 0,
-        circleY = 0;
+        let mouseX = 0,
+            mouseY = 0;
+        let circleX = 0,
+            circleY = 0;
 
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
-    function animate() {
-        circleX += (mouseX - circleX) * 0.15;
-        circleY += (mouseY - circleY) * 0.15;
+        function animate() {
+            circleX += (mouseX - circleX) * 0.15;
+            circleY += (mouseY - circleY) * 0.15;
 
-        circle.style.left = circleX + 'px';
-        circle.style.top = circleY + 'px';
+            circle.style.left = circleX + 'px';
+            circle.style.top = circleY + 'px';
 
-        requestAnimationFrame(animate);
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    } catch (error) {
+        console.error('Mouse cursor animation error:', error);
     }
-
-    animate();
 })();
 </script>

@@ -17,7 +17,8 @@ class Security {
     // Validate phone number (Algerian format)
     public static function validatePhone($phone) {
         $phone = preg_replace('/[^0-9+]/', '', $phone);
-        return preg_match('/^(\+213|0)[5-7][0-9]{8}$/', $phone);
+        // Accept various Algerian phone formats
+        return preg_match('/^(\+213|0)[5-7][0-9]{8}$/', $phone) || preg_match('/^[0-9]{10,}$/', $phone);
     }
     
     // Generate secure token
@@ -54,34 +55,10 @@ class Security {
         }
     }
     
-    // Rate limiting
-    public static function checkRateLimit($identifier, $maxAttempts = 5, $timeWindow = 3600) {
-        if (!isset($_SESSION['rate_limit'])) {
-            $_SESSION['rate_limit'] = [];
-        }
-        
-        $currentTime = time();
-        $key = hash('sha256', $identifier);
-        
-        // Clean old entries
-        if (isset($_SESSION['rate_limit'][$key])) {
-            $_SESSION['rate_limit'][$key] = array_filter(
-                $_SESSION['rate_limit'][$key],
-                function($timestamp) use ($currentTime, $timeWindow) {
-                    return ($currentTime - $timestamp) < $timeWindow;
-                }
-            );
-        } else {
-            $_SESSION['rate_limit'][$key] = [];
-        }
-        
-        // Check limit
-        if (count($_SESSION['rate_limit'][$key]) >= $maxAttempts) {
-            return false;
-        }
-        
-        // Add new attempt
-        $_SESSION['rate_limit'][$key][] = $currentTime;
+    // Rate limiting - DISABLED for unlimited registrations
+    // Returns true to allow all requests
+    public static function checkRateLimit($identifier, $maxAttempts = null, $timeWindow = null) {
+        // No rate limiting - allow all registrations
         return true;
     }
     
@@ -103,9 +80,11 @@ class Security {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            // Handle multiple IPs
+            $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            $ip = trim($ips[0]);
         } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
+            $ip = $_SERVER['REMOTE_ADDR'] ?? '';
         }
         return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0';
     }

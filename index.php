@@ -1,3 +1,8 @@
+<?php
+require_once 'config.php';
+require_once 'security.php';
+$csrfToken = Security::generateCSRFToken();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -1053,7 +1058,7 @@
                 </div>
                 <div class="info-box">
                     <h3>⚠️ Important</h3>
-                    <p><strong>Inscription obligatoire pour accèder au salon</strong></p>
+                    <p><strong>Inscription obligatoire pour accéder au salon</strong></p>
                     <p>N'oubliez pas de vérifier votre dossier <strong>Spam</strong> pour l'email de confirmation</p>
                 </div>
                 <div class="info-box">
@@ -1071,6 +1076,7 @@
             <div class="registration-form" id="registrationForm">
                 <h3>Inscrivez-vous gratuitement</h3>
                 <form id="registrationFormForm">
+                    <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
                     <div class="form-group">
                         <label for="nom">Nom *</label>
                         <input type="text" id="nom" name="nom" placeholder="Votre nom" required>

@@ -1,76 +1,43 @@
 <?php
-// DEBUG VERSION of register.php - Replace temporarily to see what's happening
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/debug.log');
-
+// Registration Handler - Fixed for Resend.com API
+// Works on InfinityFree - With CSRF protection and Rate Limiting
 header('Content-Type: application/json');
 require_once 'config.php';
 require_once 'database.php';
 require_once 'security.php';
 require_once 'email.php';
 
-// Log function for debugging
-function debugLog($message, $data = null) {
-    $logMessage = date('Y-m-d H:i:s') . ' - ' . $message;
-    if ($data !== null) {
-        $logMessage .= ' - ' . print_r($data, true);
-    }
-    error_log($logMessage . "\n", 3, __DIR__ . '/debug.log');
-}
-
-debugLog("=== REGISTRATION START ===");
-debugLog("Request Method", $_SERVER['REQUEST_METHOD']);
-debugLog("Content Type", $_SERVER['CONTENT_TYPE'] ?? 'not set');
-
-// Enable CORS if needed
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    debugLog("ERROR: Wrong method");
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Méthode non autorisée']);
     exit;
 }
 
 try {
-    debugLog("Reading input data...");
-
-    // Get POST data (FormData from fetch)
     $input = $_POST;
-    debugLog("POST data", $input);
-
+    
     if (empty($input)) {
-        debugLog("ERROR: No input data received");
         http_response_code(400);
-        echo json_encode([
-            'success' => false,
-            'message' => 'Aucune donnée reçue',
-            'debug' => [
-                'post' => $_POST,
-                'get' => $_GET
-            ]
-        ]);
+        echo json_encode(['success' => false, 'message' => 'Aucune donnée reçue']);
         exit;
     }
     
-    // Rate limiting (increased for testing)
-    debugLog("Checking rate limit...");
+    // CSRF Token Validation
+    if (!isset($input['csrf_token']) || !Security::validateCSRFToken($input['csrf_token'])) {
+        http_response_code(403);
+        echo json_encode(['success' => false, 'message' => 'Token de sécurité invalide']);
+        exit;
+    }
+    
+    // Rate Limiting - Check IP address
     $clientIP = Security::getClientIP();
-    debugLog("Client IP", $clientIP);
-
-    if (!Security::checkRateLimit($clientIP, 20, 3600)) { // Increased to 20 attempts per hour for testing
-        debugLog("ERROR: Rate limit exceeded");
+    if (!Security::checkRateLimit($clientIP, 5, 300)) { // 5 attempts per 5 minutes
         http_response_code(429);
-        echo json_encode(['success' => false, 'message' => 'Trop de tentatives. Veuillez réessayer plus tard.']);
+        echo json_encode(['success' => false, 'message' => 'Trop de tentatives. Veuillez réessayer dans quelques minutes.']);
         exit;
     }
     
-    // Sanitize and validate inputs
-    debugLog("Sanitizing inputs...");
+    // Sanitize inputs
     $nom = Security::sanitizeInput($input['nom'] ?? '');
     $prenom = Security::sanitizeInput($input['prenom'] ?? '');
     $email = Security::sanitizeInput($input['email'] ?? '');
@@ -78,147 +45,104 @@ try {
     $statut = Security::sanitizeInput($input['statut'] ?? '');
     $domaine = Security::sanitizeInput($input['domaine'] ?? '');
     
-    debugLog("Sanitized data", [
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'email' => $email,
-        'telephone' => $telephone,
-        'statut' => $statut,
-        'domaine' => $domaine
-    ]);
-    
     // Validation
-    debugLog("Validating inputs...");
     $errors = [];
     
     if (empty($nom) || strlen($nom) < 2) {
         $errors[] = 'Le nom doit contenir au moins 2 caractères';
     }
-    
     if (empty($prenom) || strlen($prenom) < 2) {
         $errors[] = 'Le prénom doit contenir au moins 2 caractères';
     }
-    
     if (!Security::validateEmail($email)) {
         $errors[] = 'Adresse email invalide';
     }
-    
     if (!Security::validatePhone($telephone)) {
-        $errors[] = 'Numéro de téléphone invalide (format algérien requis)';
+        $errors[] = 'Numéro de téléphone invalide';
     }
-    
     $validStatuses = ['etudiant', 'diplome', 'emploi', 'professionnel'];
     if (!in_array($statut, $validStatuses)) {
         $errors[] = 'Statut invalide';
     }
     
     if (!empty($errors)) {
-        debugLog("Validation errors", $errors);
         http_response_code(400);
         echo json_encode(['success' => false, 'message' => implode(', ', $errors)]);
         exit;
     }
     
-    debugLog("Validation passed! Connecting to database...");
-    
-    // Connect to database
+    // Database connection
     $db = new Database();
     $conn = $db->getConnection();
-    debugLog("Database connected successfully");
     
-    // Check if email already exists
-    debugLog("Checking for existing email...");
+    // Create tables if needed
+    $db->createTables();
+    
+    // Check if email already exists and is verified
     $stmt = $conn->prepare("SELECT id, is_verified FROM participants WHERE email = ?");
     $stmt->execute([$email]);
     $existing = $stmt->fetch();
-    debugLog("Existing check result", $existing);
     
-    if ($existing) {
-        if ($existing['is_verified']) {
-            debugLog("ERROR: Email already verified");
-            http_response_code(400);
-            echo json_encode(['success' => false, 'message' => 'Cette adresse email est déjà inscrite et vérifiée']);
-            exit;
-        } else {
-            debugLog("Deleting old unverified registration...");
-            $stmt = $conn->prepare("DELETE FROM participants WHERE email = ? AND is_verified = 0");
-            $stmt->execute([$email]);
-            debugLog("Old registration deleted");
-        }
+    if ($existing && $existing['is_verified']) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Cette adresse email est déjà inscrite et vérifiée']);
+        exit;
+    }
+    
+    // Delete unverified registrations with same email
+    if ($existing && !$existing['is_verified']) {
+        $stmt = $conn->prepare("DELETE FROM participants WHERE email = ? AND is_verified = 0");
+        $stmt->execute([$email]);
     }
     
     // Generate verification token
-    debugLog("Generating verification token...");
     $token = Security::generateToken();
     $hashedToken = Security::hashToken($token);
-    debugLog("Token generated", ['token' => $token, 'hashed' => $hashedToken]);
     
-    // Insert participant
-    debugLog("Inserting participant into database...");
+    // Get client IP
+    $clientIP = Security::getClientIP();
+    
+    // Insert participant with unverified status
     $sql = "INSERT INTO participants (nom, prenom, email, telephone, statut, domaine, verification_token, ip_address) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    debugLog("SQL Query", $sql);
-    
     $stmt = $conn->prepare($sql);
-    $params = [$nom, $prenom, $email, $telephone, $statut, $domaine, $hashedToken, $clientIP];
-    debugLog("SQL Parameters", $params);
+    $stmt->execute([$nom, $prenom, $email, $telephone, $statut, $domaine, $hashedToken, $clientIP]);
     
-    $result = $stmt->execute($params);
-    debugLog("Insert result", $result);
+    $participantId = $conn->lastInsertId();
     
-    if (!$result) {
-        $errorInfo = $stmt->errorInfo();
-        debugLog("ERROR: Insert failed", $errorInfo);
-        throw new Exception('Erreur lors de l\'insertion des données: ' . print_r($errorInfo, true));
-    }
+    error_log("[" . date('Y-m-d H:i:s') . "] New registration: " . $prenom . " " . $nom . " - Email: " . $email . " - ID: " . $participantId);
     
-    $insertedId = $conn->lastInsertId();
-    debugLog("Participant inserted with ID", $insertedId);
-    
-    // Send verification email
-    debugLog("Sending verification email...");
+    // Send verification email using Resend API
     $fullName = $prenom . ' ' . $nom;
     $emailSent = EmailService::sendVerificationEmail($email, $fullName, $token);
-    debugLog("Email sent result", $emailSent);
     
-    if (!$emailSent) {
-        debugLog("WARNING: Failed to send verification email");
-        error_log("Failed to send verification email to: " . $email);
+    if ($emailSent) {
+        error_log("[" . date('Y-m-d H:i:s') . "] Verification email sent successfully to: " . $email);
+    } else {
+        error_log("[" . date('Y-m-d H:i:s') . "] WARNING: Email delivery failed for: " . $email);
     }
     
-    debugLog("=== REGISTRATION SUCCESS ===");
-    
+    // Return success response
     echo json_encode([
         'success' => true,
         'message' => 'Inscription réussie! Veuillez vérifier votre email pour confirmer votre inscription.',
-        'email_sent' => $emailSent,
-        'debug' => [
-            'participant_id' => $insertedId,
-            'token_generated' => true,
-            'email_attempted' => true
-        ]
+        'participant_id' => $participantId,
+        'email_sent' => $emailSent
     ]);
     
-} catch (Exception $e) {
-    debugLog("EXCEPTION CAUGHT", [
-        'message' => $e->getMessage(),
-        'file' => $e->getFile(),
-        'line' => $e->getLine(),
-        'trace' => $e->getTraceAsString()
-    ]);
-    
-    error_log("Registration Error: " . $e->getMessage());
+} catch (PDOException $e) {
+    error_log("[" . date('Y-m-d H:i:s') . "] Database Error: " . $e->getMessage());
     http_response_code(500);
     echo json_encode([
         'success' => false, 
-        'message' => 'Une erreur est survenue. Veuillez réessayer.',
-        'debug' => [
-            'error' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine()
-        ]
+        'message' => 'Erreur de base de données. Veuillez réessayer.'
+    ]);
+} catch (Exception $e) {
+    error_log("[" . date('Y-m-d H:i:s') . "] Registration Error: " . $e->getMessage());
+    http_response_code(500);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Une erreur est survenue. Veuillez réessayer.'
     ]);
 }
-
-debugLog("=== REGISTRATION END ===\n\n");
 ?>

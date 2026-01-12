@@ -6,6 +6,9 @@ require_once 'email.php';
 
 $message = '';
 $success = false;
+$qrCode = null;
+$qrCodeImageUrl = null;
+$participant = null;
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
@@ -30,13 +33,13 @@ if (isset($_GET['token'])) {
         } elseif ($participant['is_verified']) {
             $message = 'Votre inscription a déjà été confirmée.';
             $success = true;
-            // Get existing QR code for already verified users
+            
+            // Get existing QR code
             $stmt = $conn->prepare("SELECT qr_code FROM participants WHERE id = ?");
             $stmt->execute([$participant['id']]);
             $qrResult = $stmt->fetch();
             $qrCode = $qrResult ? $qrResult['qr_code'] : null;
-            // Generate QR code image URL for existing users
-            $qrCodeImageUrl = $qrCode ? "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=" . urlencode($qrCode) : null;
+            $qrCodeImageUrl = $qrCode ? "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" . urlencode($qrCode) : null;
         } else {
             // Check if token is expired (24 hours)
             $createdAt = strtotime($participant['created_at']);
@@ -59,15 +62,20 @@ if (isset($_GET['token'])) {
 
                 // Send confirmation email with QR code
                 $fullName = $participant['prenom'] . ' ' . $participant['nom'];
-                EmailService::sendConfirmationEmail($participant['email'], $fullName, $qrCode);
+                $emailSent = EmailService::sendConfirmationEmail($participant['email'], $fullName, $qrCode);
+                
+                if ($emailSent) {
+                    error_log("[" . date('Y-m-d H:i:s') . "] Confirmation email sent to: " . $participant['email']);
+                } else {
+                    error_log("[" . date('Y-m-d H:i:s') . "] FAILED to send confirmation email to: " . $participant['email']);
+                }
 
                 $message = 'Votre inscription a été confirmée avec succès!';
                 $success = true;
-                $showQRCode = true;
             }
         }
     } catch (Exception $e) {
-        error_log("Verification Error: " . $e->getMessage());
+        error_log("[" . date('Y-m-d H:i:s') . "] Verification Error: " . $e->getMessage());
         $message = 'Une erreur est survenue lors de la vérification.';
     }
 } else {
@@ -113,8 +121,7 @@ if (isset($_GET['token'])) {
         width: 100px;
         height: 100px;
         margin: 0 auto 30px;
-        background: <?php echo $success ? 'linear-gradient(135deg, #26d0ce, #1a2980)': 'linear-gradient(135deg, #ff6b6b, #c92a2a)';
-        ?>;
+        background: <?php echo $success ? 'linear-gradient(135deg, #26d0ce, #1a2980)': 'linear-gradient(135deg, #ff6b6b, #c92a2a)'; ?>;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -124,15 +131,8 @@ if (isset($_GET['token'])) {
     }
 
     @keyframes bounce {
-
-        0%,
-        100% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.1);
-        }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
     }
 
     h1 {
@@ -183,12 +183,12 @@ if (isset($_GET['token'])) {
 
     .qr-code {
         font-family: 'Courier New', monospace;
-        font-size: 16px;
+        font-size: 11px;
         color: #1a2980;
         font-weight: bold;
-        letter-spacing: 1px;
         word-break: break-all;
         text-align: center;
+        padding: 10px;
     }
     </style>
 </head>
@@ -199,12 +199,11 @@ if (isset($_GET['token'])) {
         <h1><?php echo $success ? 'Inscription Confirmée!' : 'Erreur de Vérification'; ?></h1>
         <p><?php echo htmlspecialchars($message); ?></p>
 
-        <?php if ($success && isset($qrCode) && isset($qrCodeImageUrl)): ?>
+        <?php if ($success && $qrCode && $qrCodeImageUrl): ?>
         <div class="qr-section">
             <h2 style="color: #26d0ce; margin-bottom: 20px;">Votre Code QR d'Accès</h2>
             <div class="qr-code-display">
-                <img src="<?php echo htmlspecialchars($qrCodeImageUrl); ?>" alt="QR Code"
-                    style="max-width: 100%; height: auto;">
+                <img src="<?php echo htmlspecialchars($qrCodeImageUrl); ?>" alt="QR Code" style="max-width: 100%; height: auto;">
             </div>
             <p style="font-size: 0.9em; color: rgba(255, 255, 255, 0.7); margin-top: 15px;">
                 Présentez ce code QR à l'entrée du salon<br>
