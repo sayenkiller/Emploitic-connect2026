@@ -7,15 +7,15 @@ define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
 // Email configuration
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_PORT', 587);
-define('SMTP_USER', 'killerbidk@gmail.com');
-define('SMTP_PASS', 'your_app_password');
-define('SMTP_FROM', 'killerbidk@gmail.com');
+define('SMTP_HOST', getenv('SMTP_HOST') ?: 'smtp.gmail.com');
+define('SMTP_PORT', getenv('SMTP_PORT') ?: 587);
+define('SMTP_USER', getenv('SMTP_USER') ?: 'killerbidk@gmail.com');
+define('SMTP_PASS', getenv('SMTP_PASS') ?: 'your_app_password');
+define('SMTP_FROM', getenv('SMTP_FROM') ?: 'killerbidk@gmail.com');
 define('SMTP_FROM_NAME', 'Emploitic Connect');
 
 // Site configuration
-define('SITE_URL', 'http://localhost/EMPLOITIC_CONNECT_2026');
+define('SITE_URL', getenv('SITE_URL') ?: 'http://localhost/EMPLOITIC_CONNECT_2026');
 define('SITE_NAME', 'Emploitic Connect 2026');
 
 // Security

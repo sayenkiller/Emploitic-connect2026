@@ -1,0 +1,21 @@
+{
+    "name": "emploitic/emploitic-connect-2026",
+    "description": "Emploitic Connect 2026 - Event Registration Platform",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "ext-pdo": "*",
+        "ext-mysqli": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "prefer-stable": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
